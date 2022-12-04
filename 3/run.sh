@@ -36,9 +36,6 @@ solution1 () {
 		for letter in ${seen[@]}; do
 			total+=${priorities[$letter]}
 		done
-#                if [[ $1 == 2 ]]; then
-#                        # sol2
-#                fi
     done < puzzle-input
 	echo $total
 }
