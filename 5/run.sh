@@ -1,8 +1,3 @@
-#     [D]    
-# [N] [C]    
-# [Z] [M] [P]
-#  1   2   3 
-
 remove_from_string() {
     # arg 1 regex, arg 2 string
     # '(.*)[a-zA-Z]+(.*)' removes all letters
@@ -24,15 +19,6 @@ reverse_string() {
 }
 
 declare -a puzzle=()
-# [C]         [S] [H]                
-# [F] [B]     [C] [S]     [W]        
-# [B] [W]     [W] [M] [S] [B]        
-# [L] [H] [G] [L] [P] [F] [Q]        
-# [D] [P] [J] [F] [T] [G] [M] [T]    
-# [P] [G] [B] [N] [L] [W] [P] [W] [R]
-# [Z] [V] [W] [J] [J] [C] [T] [S] [C]
-# [S] [N] [F] [G] [W] [B] [H] [F] [N]
-#  1   2   3   4   5   6   7   8   9 
 load () {
     puzzle[1]="SZPDLBFC"
     puzzle[2]="NVGPHWB"
@@ -82,5 +68,6 @@ solution () {
 
 load
 solution 1
+
 load
 solution 2
