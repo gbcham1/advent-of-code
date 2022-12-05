@@ -37,7 +37,8 @@ string_manipulation() {
     echo ${str: -1} # o
     echo ${str: 1} # ello
     echo ${str%?} # hell
-    echo ${#str} # 5
+    echo ${#str} # 5 (total num chars)
+    echo ${#str[@]} # 1 (total num items split by space)
     echo ${str//l/L} # heLLo
 }
 
