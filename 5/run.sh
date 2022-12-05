@@ -18,6 +18,7 @@ reverse_string() {
     done
 }
 
+# still needs a proper solution
 declare -a puzzle=()
 load () {
     puzzle[1]="SZPDLBFC"
@@ -47,7 +48,7 @@ solution () {
         done
         puzzle[${s[1]}]=$fromcrate
 
-        # add crates in temp variable to destination crate
+        # solution 2 adds in reverse
         if [[ $1 == "2" ]]; then
             reverse_string $revstr
         fi
