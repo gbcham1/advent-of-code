@@ -1,15 +1,15 @@
 readarray -t puzzle < puzzle-input
 
 # Taken from SO for speed https://stackoverflow.com/questions/10586153/how-to-split-a-string-into-an-array-in-bash
-split(){
+split() {
     a=()
     local car=""
     local cdr="$2"
     while
-        car="${cdr%%"$1"*}"
-        a+=("$car")
-        cdr="${cdr:${#car}}"
-        (( ${#cdr} ))
+        car="${cdr%%"$1"*}" # deletes longest match of $1 from back of cdr, returns it
+        a+=("$car") # add what was returned to array
+        cdr="${cdr:${#car}}" 
+        (( ${#cdr} )) # check if cdr still has length
     do
         cdr="${cdr:${#1}}"
     done
