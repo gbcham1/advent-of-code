@@ -1,5 +1,5 @@
 remove_from_string() {
-    # arg 1 regex, arg 2 string
+    # arg 1 regex, arg 2:: string
     # '(.*)[a-zA-Z]+(.*)' removes all letters
     local re=$1
     local s=${@:2}
@@ -34,32 +34,29 @@ load () {
 solution () {
     while IFS= read -r line; do
         if [[ $line != "move"* ]]; then continue; fi
-        # load string
+        # load string into array
         remove_from_string '(.*)[a-zA-Z]+(.*)' $line
         s=($filteredString)
 
         # pop moving crates into new variable and update origin crate
-        movers=""
-        tocrate=${puzzle[${s[2]%?}]}
+        revstr=""
         fromcrate=${puzzle[${s[1]}]}
-        for ((i=1;i<=$((${s[0]}));i++)); do
-            movers+=${fromcrate: -1}
+        for ((i=1; i<=${s[0]}; i++)); do
+            revstr+=${fromcrate: -1}
             fromcrate=${fromcrate%?}
         done
         puzzle[${s[1]}]=$fromcrate
 
         # add crates in temp variable to destination crate
-        revstr=$movers # var failsafe is solution 1
         if [[ $1 == "2" ]]; then
-            reverse_string $movers
+            reverse_string $revstr
         fi
-        tocrate+=$revstr
-        puzzle[${s[2]%?}]=$tocrate
+        puzzle[${s[2]%?}]+=$revstr
     done < puzzle-input
 
     # print solution
     s=""
-    for ((i=1;i<=${#puzzle[@]};i++)); do
+    for ((i=1; i<=9; i++)); do
         t=${puzzle[$i]}
         s+=${t: -1}
     done
