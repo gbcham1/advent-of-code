@@ -31,3 +31,11 @@ remove_from_string() {
     done
     filteredString=$s
 }
+
+string_manipulation() {
+    str="hello"
+    echo ${str: -1} # o
+    echo ${str: 1} # ello
+    echo ${str%?} # hell
+    echo ${#str} # 5
+}
