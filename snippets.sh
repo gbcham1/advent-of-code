@@ -38,4 +38,7 @@ string_manipulation() {
     echo ${str: 1} # ello
     echo ${str%?} # hell
     echo ${#str} # 5
+    echo ${str//l/L} # heLLo
 }
+
+string_manipulation
