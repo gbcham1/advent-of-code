@@ -3,11 +3,11 @@ solution () {
         cur=${puzzle:$i:$1}
         temp=""
         for ((c=0; c<${#cur}; c++)); do
-            if [[ "$temp" == *"${cur:$c:1}"* ]]; then break; fi
+            if [[ $temp == *"${cur:$c:1}"* ]]; then break; fi
             temp+=${cur:$c:1}
         done
-        if [[ $cur == $temp ]]; then
-            echo $(($i+$1))
+        if [[ $cur == "$temp" ]]; then
+            echo $((i+$1))
             break
         fi
     done
