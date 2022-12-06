@@ -37,8 +37,8 @@ solution () {
         if [[ $line != "move"* ]]; then continue; fi
         # load string into array
         remove_from_string '(.*)[a-zA-Z]+(.*)' $line
-        # IFS=" " read -r n f t < <(echo $filteredString) # slow because it spawns a subshell, but reads into nicer variables 
         s=($filteredString)
+        # IFS=" " read -r n f t < <(echo $filteredString) # slow because it spawns a subshell, but reads into nicer variables 
 
         # pop moving crates into new variable and update origin crate
         revstr=""
