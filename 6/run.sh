@@ -3,9 +3,7 @@ solution () {
         cur=${puzzle:$i:$1}
         temp=""
         for ((c=0; c<${#cur}; c++)); do
-            if [[ "$temp" == *"${cur:$c:1}"* ]]; then 
-                break
-            fi
+            if [[ "$temp" == *"${cur:$c:1}"* ]]; then break; fi
             temp+=${cur:$c:1}
         done
         if [[ $cur == $temp ]]; then
@@ -21,6 +19,7 @@ regex_solution () {
     for ((i=0; i<$((${#puzzle}-$1)); i++)); do
         if [[ ${puzzle:$i:$1} =~ ^(?:([A-Za-z])(?!.*\1))*$ ]]; then
             echo $(($i+$1))
+            break
         fi
     done
 }
