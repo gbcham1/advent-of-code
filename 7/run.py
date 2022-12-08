@@ -32,3 +32,5 @@ while pwd:
 print(sum([folders[i] for i in folders if folders[i] < 100000]))
 required_space = 30000000 - (70000000 - folders[''])
 print(min([i for i in folders.values() if i >= required_space]))
+
+print(folders)
